@@ -1,0 +1,49 @@
+
+.content{
+	width: 100vw;
+	height: 100vh;
+	overflow:hidden;
+}
+.video-list-wrap{
+	width: 100%;
+	height: 100%;
+	margin:0 ;
+	background-color: #fff;
+	overflow: hidden;
+}
+.tab-wrap{
+	position:fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 50px;
+	width: 100%;
+	z-index: 20;
+}
+.top-nav{
+	position:fixed;
+	top:20px;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: 35px;
+	z-index: 20;
+	color:#c2c3c5;
+}
+.view-left{
+	position: fixed;
+	left: 10px;
+	bottom: 50px;
+	z-index: 20;
+	width: 70%;
+	height: auto;
+}
+.view-right{
+	position: fixed;
+	right: 10px;
+	bottom: 50px;
+	z-index: 20;
+	width: 60px;
+	height: auto;
+}
+

@@ -1,0 +1,1 @@
+<view class="message-content-wrap"><block wx:if="{{list.length===0}}"><empty1 class="message-empty" vue-id="4bd5673e-1" clue1="聊天列表为空" clue2="赶快寻找一位好友开始聊天吧" bind:__l="__l"></empty1></block><block wx:else><view class="message-content-master">聊天列表内容（待加入）</view></block><empty2 class="message-empty" vue-id="4bd5673e-2" clue2="暂时没有更多了" bind:__l="__l"></empty2></view>

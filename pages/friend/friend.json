@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "tab": "/components/tab",
+    "top-nav": "/components/topNav-slot",
+    "content": "/components/friend-content"
+  }
+}

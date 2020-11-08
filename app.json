@@ -1,0 +1,54 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/follow/follow",
+    "pages/friend/friend",
+    "pages/plus/plus",
+    "pages/message/message",
+    "pages/profile/profile",
+    "pages/city/city",
+    "pages/cityList/cityList",
+    "pages/recommendVideo/recommendVideo",
+    "pages/login/login",
+    "pages/addFriends/addFriends",
+    "pages/fans/fans",
+    "pages/comment/comment",
+    "pages/callMe/callMe",
+    "pages/laud/laud",
+    "pages/editDetail/editDetail"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "my-dyapp",
+    "navigationStyle": "custom",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/friend/friend",
+        "text": "朋友"
+      },
+      {
+        "pagePath": "pages/plus/plus",
+        "text": "加号"
+      },
+      {
+        "pagePath": "pages/message/message",
+        "text": "消息"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我"
+      }
+    ]
+  },
+  "usingComponents": {},
+  "sitemapLocation": "sitemap70.json"
+}

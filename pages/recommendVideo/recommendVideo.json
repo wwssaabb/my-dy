@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "top-nav": "/components/topNav",
+    "tab": "/components/tab",
+    "left": "/components/viewLeft",
+    "right": "/components/viewRight",
+    "video-player": "/components/videoPlayer"
+  }
+}

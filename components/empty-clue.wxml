@@ -1,0 +1,1 @@
+<block wx:if="{{clue1!==''||clue2!==''}}"><view class="empty-wrap"><block wx:if="{{clue1!==''}}"><text class="empty-clue1">{{''+clue1+''}}</text></block><block wx:if="{{clue2!==''}}"><text class="empty-clue2">{{''+clue2+''}}</text></block></view></block>

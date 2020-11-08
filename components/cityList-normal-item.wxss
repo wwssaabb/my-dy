@@ -1,0 +1,24 @@
+
+.normal-item-wrap {
+	width:  100%;
+	height: auto;
+}
+.normal-item {
+	width: 100%;
+	height: 52px;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack: start;
+	-webkit-justify-content: start;
+	        justify-content: start;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	        align-items: center;
+	color: #919296;
+	font-size: 14px;
+	font-weight: bold;
+	font-style: 宋体;
+	border-bottom:1px solid #262832;
+}
+

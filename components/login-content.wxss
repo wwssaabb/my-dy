@@ -1,0 +1,136 @@
+
+.login-content-wrap{
+	width: 100vw;
+	height: 100%;
+	padding-top: 90px;
+	overflow: hidden;
+}
+.login-content-title{
+	width: 100%;
+	height: 20px;
+	padding-left: 20px;
+	line-height: 20px;
+	font-size: 20px;
+	text-align: start;
+	font-weight: bold;
+	color: #000;
+	margin-bottom:20px;
+}
+.login-content-input,
+.login-content-input-account,
+.login-content-input-password{
+	width: 100%;
+	height: auto;
+}
+.login-content-input{
+	position:relative;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	        flex-wrap: wrap;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	        justify-content: center;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	        align-items: center;
+	margin-bottom:50px ;
+}
+.login-content-input-account,
+.login-content-input-password{
+	width: 80%;
+	height: 30px;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	        justify-content: center;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	        align-items: center;
+	margin-bottom:20px;
+}
+.input-account-clrea,
+.input-password-show{
+	position: absolute;
+	top:5px;
+	right: 5px;
+	font-size: 20px;
+	font-weight: bold;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	        justify-content: center;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	        align-items: center;
+	z-index: 21;
+}
+.input-account-clrea{
+	-webkit-transform: rotate(45deg);
+	        transform: rotate(45deg);
+}
+.input-account-title,
+.input-password-title{
+	width: auto;
+	height: 30px;
+	line-height: 30px;
+	font-size: 18px;
+	font-weight: bold;
+}
+.input-account-wrap,
+.input-password-wrap{
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	        flex: 1;
+	height: 30px;
+	position: relative;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-wrap: nowrap;
+	        flex-wrap: nowrap;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	        justify-content: center;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	        align-items: center;
+	margin-left: 5px;
+}
+.input-account,
+.input-password{
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	width: 100%;
+	height: 30px;
+	-webkit-border-radius: 5px;
+	        border-radius: 5px;
+	border: 3px solid #000;
+	padding:0 5px ;
+}
+.input-fail{
+	border: 3px solid #f00;
+	-webkit-box-shadow:0 0 10px #fe2c55 ;
+	        box-shadow:0 0 10px #fe2c55 ;
+}
+.login-content-clue{
+	position: absolute;
+	bottom:-35px ;
+	width: 50%;
+	height: 20px;
+	line-height:20px ;
+	font-size: 14px;
+	left:50% ;
+	-webkit-transform: translateX(-50%);
+	        transform: translateX(-50%);
+	color: #fe2c55;
+	text-shadow: 0 0 1px #fe1741;
+	text-align: center;
+	margin-bottom:10px;
+}
+

@@ -1,0 +1,11 @@
+
+.message-content{
+	width: 100vw;
+	height: auto;
+	overflow:hidden;
+}
+.message-empty{
+	width: 100%;
+	height: auto;
+}
+

@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "uni-popup": "/components/uni-popup/uni-popup",
+    "tab": "/components/tab",
+    "top-nav": "/components/topNav-slot",
+    "wallpaper": "/components/profile-wallpaper",
+    "content": "/components/profile-content",
+    "uni-popup-message": "/components/uni-popup/uni-popup-message",
+    "uni-popup-dialog": "/components/uni-popup/uni-popup-dialog"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "empty1": "/components/empty-clue",
+    "empty2": "/components/empty-clue"
+  }
+}

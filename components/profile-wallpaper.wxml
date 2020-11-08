@@ -1,0 +1,1 @@
+<view class="profile-wallpaper-wrap"><image class="profile-wallpaper-img" src="{{src}}" mode="widthFix"></image></view>

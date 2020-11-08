@@ -1,0 +1,55 @@
+
+.add-friends-list-wrap{
+	width: 100%;
+	height: 100%;
+}
+.add-friends-list-search-wrap{
+	width: 100%;
+	height: auto;
+	background-color:#161823 ;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	        justify-content: center;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	        align-items: center;
+	margin: 10px 0;
+}
+.add-friends-list-search{
+	width: 90%;
+	height: 30px;
+	background-color:#161823 ;
+	color: #7c7d83;
+}
+.add-friends-list-content-wrap{
+	width: 100%;
+	height: 100%;
+}
+.add-friends-list-content-empty{
+	width: auto;
+	height: auto;
+}
+.add-friends-list-content-empty-friends-img{
+	width: 310px;
+	height: 260px;
+	margin-top:100px;
+	margin-left: 50%;
+	-webkit-transform: translateX(-50%) scale(0.75);
+	        transform: translateX(-50%) scale(0.75);
+}
+.add-friends-list-content-empty-search-img{
+	width: 300px;
+	height: 330px;
+	margin-top:100px;
+	margin-left: 50%;
+	-webkit-transform: translateX(-50%) scale(0.75);
+	        transform: translateX(-50%) scale(0.75);
+}
+.add-friends-list-content{
+	width: 100%;
+	height: 100%;
+}
+

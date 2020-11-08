@@ -1,0 +1,76 @@
+
+.message-label-wrap{
+	width: 100%;
+	height: auto;
+	padding: 15px 0;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-justify-content: space-around;
+	        justify-content: space-around;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	        align-items: center;
+}
+.message-label-item{
+	width: 11vw;
+	height: calc(11vw + 25px);
+}
+.message-label-icon-wrap-fans,
+.message-label-icon-wrap-laud,
+.message-label-icon-wrap-mine,
+.message-label-icon-wrap-comment{
+	width: 11vw;
+	height: 11vw;
+	-webkit-border-radius:3px ;
+	        border-radius:3px ;
+	margin-bottom:5px ;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	        justify-content: center;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	        align-items: center;
+}
+.message-label-icon-wrap-fans{
+	background-image: -webkit-linear-gradient(315deg,#5cb1fd,#3577fa);
+	background-image: linear-gradient(135deg,#5cb1fd,#3577fa);
+}
+.message-label-icon-wrap-laud{
+	background-image: -webkit-linear-gradient(315deg,#fe5f95,#ff4a71);
+	background-image: linear-gradient(135deg,#fe5f95,#ff4a71);
+}
+.message-label-icon-wrap-mine{
+	background-image: -webkit-linear-gradient(315deg,#75efff,#07a3f5);
+	background-image: linear-gradient(135deg,#75efff,#07a3f5);
+}
+.message-label-icon-wrap-comment{
+	background-image: -webkit-linear-gradient(315deg,#f96ef3,#bf4efc);
+	background-image: linear-gradient(135deg,#f96ef3,#bf4efc);
+}
+.message-label-icon-fans,
+.message-label-icon-laud,
+.message-label-icon-aite,
+.message-label-icon-comment{
+	font-size: 7vw;
+	color: #dde9fc;
+}
+.message-label-icon-fans{
+	font-size: 5vw;
+}
+.message-label-icon-aite{
+	font-size: 6vw;
+}
+.message-label-text{
+	width: 100%;
+	height: 20px;
+	line-height: 20px;
+	font-size: 12px;
+	font-weight: bold;
+	text-align: center;
+	color: #d6d6d8;
+}
+

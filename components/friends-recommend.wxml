@@ -1,0 +1,1 @@
+<view class="recommend-friends-wrap"><view class="recommend-friends-title">{{''+title+''}}<view data-event-opts="{{[['tap',[['hint',['$event']]]]]}}" class="iconfont icon-tishi recommend-friends-title-icon" bindtap="__e"></view></view><block wx:if="{{list.lenght!==0}}"><view class="no-recommend-friends-empty">暂时没有更多了</view></block></view>

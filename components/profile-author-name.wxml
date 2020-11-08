@@ -1,0 +1,1 @@
+<view class="profile-author-name"><view class="profile-author-name-text">{{''+name+''}}</view><view class="profile-author-name-account">{{'抖音号 : '+account+''}}<view data-event-opts="{{[['tap',[['copy',['$event']]]]]}}" class="iconfont icon-fuzhi profile-author-name-account-copy" bindtap="__e"></view></view></view>

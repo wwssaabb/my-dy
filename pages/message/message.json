@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "top-nav": "/components/topNav-slot",
+    "tab": "/components/tab",
+    "label-list": "/components/message-labelList",
+    "content": "/components/message-content"
+  }
+}

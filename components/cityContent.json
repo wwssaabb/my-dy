@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "city-location": "/components/cityLocation",
+    "video-player": "/components/videoPlayer"
+  }
+}

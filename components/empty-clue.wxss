@@ -1,0 +1,32 @@
+
+.empty-wrap{
+	width: 100vw;
+	height: 100px;
+	margin: 30px 0;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	        justify-content: center;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	        align-items: center;
+}
+.empty-clue1{
+	font-size: 16px;
+	font-weight: bold;
+	color: #e8e8e9;
+	letter-spacing: 2px;
+	margin-bottom:10px;
+}
+.empty-clue2{
+	font-size: 14px;
+	font-weight: normal;
+	color: #84858b;
+}
+

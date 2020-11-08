@@ -1,0 +1,10 @@
+
+.follow-content-wrap{
+	 width: 100%;
+	 height: 100%;
+}
+.follow-content-video-list{
+	 width: 100%;
+	 height: 100%;
+}
+

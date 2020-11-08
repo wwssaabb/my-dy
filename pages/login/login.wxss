@@ -1,0 +1,27 @@
+
+.login-wrap{
+	 width: 100vw;
+	 height: 100vh;
+	 overflow: hidden;
+}
+.login-top-nav{
+	 width: 100%;
+	 height: auto;
+	 position: fixed;
+	 top: 20px;
+	 left: 0;
+	 z-index: 20;
+}
+.login-top-nav-icon{
+	 -webkit-transform: rotate(180deg);
+	         transform: rotate(180deg);
+	 font-size: 22px;
+}
+.login-top-nav-help{
+	 font-weight: bold;
+}
+.login-content{
+	 width: 100%;
+	 height: auto;
+}
+

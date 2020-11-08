@@ -1,0 +1,66 @@
+
+.follow-nologin-wrap{
+	width: 100%;
+	height: 100%;
+	background-color: #000;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient:vertical;
+	-webkit-box-direction:normal;
+	-webkit-flex-direction:column;
+	        flex-direction:column;
+	-webkit-box-pack: start;
+	-webkit-justify-content: flex-start;
+	        justify-content: flex-start;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	        align-items: center;
+	overflow: hidden;
+}
+.follow-nologin-image{
+	width: 300px;
+	height: 250px;
+	-webkit-transform: scale(0.8);
+	        transform: scale(0.8);
+	margin-top:50px ;
+	margin-bottom:20px;
+}
+.follow-isLogin{
+	width: 100%;
+	height: 100%;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	        justify-content: center;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	        align-items: center;
+}
+.follow-isLogin-clue{
+	font-size: 18px;
+	font-weight: bold;
+	text-align: center;
+	letter-spacing: 5px;
+	color: #fff;
+	margin-top: -28px;
+	margin-bottom: 10px;
+}
+.follow-isLogin-hint{
+	font-size: 14px;
+	font-weight: bold;
+	text-align: center;
+	letter-spacing: 2px;
+	color: #767676;
+	margin-bottom: 30px;
+}
+.follow-tologin{
+	text-align: center;
+}
+

@@ -1,0 +1,1 @@
+<view class="follow-content-wrap"><video-list class="follow-content-video-list" vue-id="14e1322e-1" list="{{videos}}" data-event-opts="{{[['^changeIsLove',[['changeIsLove']]],['^changeCurrent',[['changeCurrent']]]]}}" bind:changeIsLove="__e" bind:changeCurrent="__e" bind:__l="__l"></video-list></view>

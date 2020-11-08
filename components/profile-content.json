@@ -1,0 +1,9 @@
+{
+  "component": true,
+  "usingComponents": {
+    "author": "/components/profile-author",
+    "name": "/components/profile-author-name",
+    "introduce": "/components/profile-author-introduce",
+    "lables": "/components/profile-author-lables-swiper"
+  }
+}

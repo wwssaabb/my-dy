@@ -1,0 +1,21 @@
+
+.video-player-wrap,
+.video-player-item,
+.video-player-item-wrap,
+.video-player-swiper-item,
+.video-player-swiper-wrap{
+	width: 100%;
+	height: 100%;
+}
+.video-player-wrap{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack: start;
+	-webkit-justify-content: start;
+	        justify-content: start;
+	-webkit-box-align: start;
+	-webkit-align-items: flex-start;
+	        align-items: flex-start;
+}
+

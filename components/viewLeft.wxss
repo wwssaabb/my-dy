@@ -1,0 +1,76 @@
+
+.view-left-wrap{
+	width: 100%;
+	height: auto;
+}
+.view-left-author,
+.view-left-title,
+.view-left-song{
+	width: 100%;
+	height: auto;
+	margin-bottom:10px ;
+}
+.view-left-song{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	width: 80%;
+	overflow: hidden;
+}
+.view-left-author-text,
+.view-left-song-text,
+.view-left-title-text{
+	color: #fff;
+}
+.view-left-author-text{
+	height: 20px;
+	line-height:20px;
+	font-size: 20px;
+	font-weight: bold;
+}
+.view-left-song-text{
+	font-size: 16px;
+	line-height: 16px;
+	height: 16px;
+	font-weight: 500;
+	width: auto;
+	display:inline-block;
+	white-space: nowrap;
+	-webkit-animation:moveX 6s linear infinite;
+	        animation:moveX 6s linear infinite;
+}
+.view-left-title-text{
+	font-size: 18px;
+	line-height: 18px;
+	height: 18px;
+	font-weight: bold;
+}
+.view-left-title-text{
+	height: auto;
+	word-wrap: break-word;
+}
+.view-left-song-icon{
+	font-size: 20px;
+	font-weight: bold;
+	color: #f3f4f3;
+}
+.view-left-song-text-wrap{
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	        align-items: center;
+}
+@-webkit-keyframes moveX{
+0%{-webkit-transform: translateX(100%);transform: translateX(100%);}
+100%{-webkit-transform: translateX(-100%);transform: translateX(-100%);}
+}
+@keyframes moveX{
+0%{-webkit-transform: translateX(100%);transform: translateX(100%);}
+100%{-webkit-transform: translateX(-100%);transform: translateX(-100%);}
+}
+

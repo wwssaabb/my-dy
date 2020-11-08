@@ -1,0 +1,29 @@
+
+.top-nav-slot{
+	 width: 100%;
+	 height: 35px;
+	 display: -webkit-box;
+	 display: -webkit-flex;
+	 display: flex;
+	 -webkit-box-pack: start;
+	 -webkit-justify-content: start;
+	         justify-content: start;
+	 -webkit-box-align: center;
+	 -webkit-align-items: center;
+	         align-items: center;
+}
+.top-nav-slot-left,
+ .top-nav-slot-center,
+ .top-nav-slot-right{
+	 height: 100%;
+	 display: -webkit-box;
+	 display: -webkit-flex;
+	 display: flex;
+	 -webkit-box-pack: center;
+	 -webkit-justify-content: center;
+	         justify-content: center;
+	 -webkit-box-align: center;
+	 -webkit-align-items: center;
+	         align-items: center;
+}
+

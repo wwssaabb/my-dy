@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "no-login": "/components/follow-noLogin",
+    "no-follow": "/components/follow-noLogin",
+    "content": "/components/follow-content",
+    "tab": "/components/tab",
+    "top-nav": "/components/topNav",
+    "left": "/components/viewLeft",
+    "right": "/components/viewRight"
+  }
+}

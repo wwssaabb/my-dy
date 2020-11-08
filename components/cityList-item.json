@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "cblock": "/components/cityList-block-item",
+    "cnormal": "/components/cityList-normal-item"
+  }
+}

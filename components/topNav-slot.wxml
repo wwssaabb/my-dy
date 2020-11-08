@@ -1,0 +1,1 @@
+<view class="top-nav-slot" style="{{(bgColor)}}"><view class="top-nav-slot-left" style="{{(leftStyle)}}"><slot name="left"></slot></view><view class="top-nav-slot-center" style="{{(centerStyle)}}"><slot name="center"></slot></view><view class="top-nav-slot-right" style="{{(rightStyle)}}"><slot name="right"></slot></view></view>

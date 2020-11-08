@@ -1,0 +1,1 @@
+<view class="normal-item-wrap"><block wx:for="{{list}}" wx:for-item="item" wx:for-index="__i0__" wx:key="*this"><view data-event-opts="{{[['tap',[['changeLocation',[item.name||item]]]]]}}" class="normal-item" bindtap="__e">{{''+(item.name||item)+''}}</view></block></view>
