@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "top-nav": "/components/topNav-slot",
+    "fans-list": "/components/fansAndFollow-swiper-fansList",
+    "follow-list": "/components/fansAndFollow-swiper-followList"
+  }
+}

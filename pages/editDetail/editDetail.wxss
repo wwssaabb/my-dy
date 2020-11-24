@@ -3,13 +3,13 @@
 	width: 100vw;
 	height: 100vh;
 	background-color: #161823;
-	padding-top:60px;
+	overflow: hidden;
 }
 .edit-detail-nav-wrap{
 	width: 100%;
 	height: 35px;
 	position:fixed;
-	top: 25px;
+	top: 35px;
 	left: 0;
 	z-index: 20;
 }
@@ -31,6 +31,7 @@
 .edit-detail-avatar-wrap{
 	width: 100%;
 	height: auto;
+	margin-top: 70px;
 	font-size: 14px;
 	font-weight: bold;
 	color: #e0e0e1;

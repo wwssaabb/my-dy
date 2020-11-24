@@ -1,0 +1,1 @@
+<view class="image-toast-wrap"><image class="image-toast-img" src="../static/img/proflie-luad-number-2.jpg" mode></image><text class="image-toast-title">{{title}}</text><button class="image-toast-btn" type="default" data-event-opts="{{[['tap',[['showLaudNumber',['$event']]]]]}}" bindtap="__e">{{btnText}}</button></view>

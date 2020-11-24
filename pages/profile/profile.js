@@ -94,7 +94,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components = {
   uniPopup: function() {
-    return Promise.all(/*! import() | components/uni-popup/uni-popup */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/uni-popup/uni-popup")]).then(__webpack_require__.bind(null, /*! @/components/uni-popup/uni-popup.vue */ 218))
+    return Promise.all(/*! import() | components/uni-popup/uni-popup */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/uni-popup/uni-popup")]).then(__webpack_require__.bind(null, /*! @/components/uni-popup/uni-popup.vue */ 226))
   }
 }
 var render = function() {
@@ -134,7 +134,19 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var tab = function tab() {__webpack_require__.e(/*! require.ensure | components/tab */ "components/tab").then((function () {return resolve(__webpack_require__(/*! ../../components/tab.vue */ 148));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var topNav = function topNav() {__webpack_require__.e(/*! require.ensure | components/topNav-slot */ "components/topNav-slot").then((function () {return resolve(__webpack_require__(/*! ../../components/topNav-slot.vue */ 190));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var wallpaper = function wallpaper() {__webpack_require__.e(/*! require.ensure | components/profile-wallpaper */ "components/profile-wallpaper").then((function () {return resolve(__webpack_require__(/*! ../../components/profile-wallpaper.vue */ 227));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var content = function content() {__webpack_require__.e(/*! require.ensure | components/profile-content */ "components/profile-content").then((function () {return resolve(__webpack_require__(/*! ../../components/profile-content.vue */ 234));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniPopup = function uniPopup() {Promise.all(/*! require.ensure | components/uni-popup/uni-popup */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/uni-popup/uni-popup")]).then((function () {return resolve(__webpack_require__(/*! @/components/uni-popup/uni-popup.vue */ 218));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniPopupMessage = function uniPopupMessage() {__webpack_require__.e(/*! require.ensure | components/uni-popup/uni-popup-message */ "components/uni-popup/uni-popup-message").then((function () {return resolve(__webpack_require__(/*! @/components/uni-popup/uni-popup-message.vue */ 241));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniPopupDialog = function uniPopupDialog() {__webpack_require__.e(/*! require.ensure | components/uni-popup/uni-popup-dialog */ "components/uni-popup/uni-popup-dialog").then((function () {return resolve(__webpack_require__(/*! @/components/uni-popup/uni-popup-dialog.vue */ 248));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _methods;function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var tab = function tab() {__webpack_require__.e(/*! require.ensure | components/tab */ "components/tab").then((function () {return resolve(__webpack_require__(/*! ../../components/tab.vue */ 156));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var topNav = function topNav() {__webpack_require__.e(/*! require.ensure | components/topNav-slot */ "components/topNav-slot").then((function () {return resolve(__webpack_require__(/*! ../../components/topNav-slot.vue */ 198));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var wallpaper = function wallpaper() {__webpack_require__.e(/*! require.ensure | components/profile-wallpaper */ "components/profile-wallpaper").then((function () {return resolve(__webpack_require__(/*! ../../components/profile-wallpaper.vue */ 235));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var content = function content() {__webpack_require__.e(/*! require.ensure | components/profile-content */ "components/profile-content").then((function () {return resolve(__webpack_require__(/*! ../../components/profile-content.vue */ 242));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniPopup = function uniPopup() {Promise.all(/*! require.ensure | components/uni-popup/uni-popup */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/uni-popup/uni-popup")]).then((function () {return resolve(__webpack_require__(/*! @/components/uni-popup/uni-popup.vue */ 226));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniPopupMessage = function uniPopupMessage() {__webpack_require__.e(/*! require.ensure | components/uni-popup/uni-popup-message */ "components/uni-popup/uni-popup-message").then((function () {return resolve(__webpack_require__(/*! @/components/uni-popup/uni-popup-message.vue */ 249));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniPopupDialog = function uniPopupDialog() {__webpack_require__.e(/*! require.ensure | components/uni-popup/uni-popup-dialog */ "components/uni-popup/uni-popup-dialog").then((function () {return resolve(__webpack_require__(/*! @/components/uni-popup/uni-popup-dialog.vue */ 256));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var imageToast = function imageToast() {__webpack_require__.e(/*! require.ensure | components/image-toast */ "components/image-toast").then((function () {return resolve(__webpack_require__(/*! ../../components/image-toast.vue */ 263));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var more = function more() {__webpack_require__.e(/*! require.ensure | components/profile-more */ "components/profile-more").then((function () {return resolve(__webpack_require__(/*! ../../components/profile-more.vue */ 270));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -185,28 +197,21 @@ __webpack_require__.r(__webpack_exports__);
 
 {
   onLoad: function onLoad() {
-    this.isLogin = this.$store.state.isLogin;
-    this.isAccess = this.$store.state.isAccess;
+
   },
-  onShow: function onShow() {
-    this.isLogin = this.$store.state.isLogin;
-    this.isAccess = this.$store.state.isAccess;
+  onShow: function onShow() {var _this = this;
     if (this.isAccess) {
-      this.message = this.$store.state.accessMessage;
-      console.log(this.message);
+      this.message = this.$store.state.accessMessage.detailMessage;
     } else {
-      if (!this.isLogin) {
-        this.$store.commit('toLogin');
-      } else {
-        this.$nextTick(function () {
-          this.$refs.tab.isChoose = '我';
-        });
-        this.message = this.$store.state.user.detailMessage;
-        this.laudNumber = this.$store.state.user.laudList.length;
-        this.followNumber = this.$store.state.user.followList.length;
-        this.fansNumber = this.$store.state.user.fansList.length;
-      }
+      this.$nextTick(function () {
+        _this.$refs.tab.isChoose = '我';
+      });
+      this.message = this.$store.state.user.detailMessage;
+      this.laudNumber = this.$store.state.user.laudList.length;
+      this.followNumber = this.$store.state.user.followList.length;
+      this.fansNumber = this.$store.state.user.fansList.length;
     }
+    this.wrapISMoveLeft = null;
   },
   components: {
     tab: tab,
@@ -215,25 +220,37 @@ __webpack_require__.r(__webpack_exports__);
     content: content,
     uniPopup: uniPopup,
     uniPopupMessage: uniPopupMessage,
-    uniPopupDialog: uniPopupDialog },
+    uniPopupDialog: uniPopupDialog,
+    imageToast: imageToast,
+    more: more },
 
   data: function data() {
     return {
       message: {},
-      isAccess: false,
+      wrapISMoveLeft: null,
       isFollow: false,
       isShow: false,
       laudNumber: 0,
       followNumber: 0,
-      fansNumber: 0 };
+      fansNumber: 0,
+      isBlur: false,
+      laudNumberIsShow: false };
 
   },
-  methods: _defineProperty({
+  methods: (_methods = {
     navigateBack: function navigateBack() {
-      this.$store.state.isAccess = false;
-      uni.switchTab({
-        url: '/pages/index/index' });
+      var isRecommend = this.$store.state.isRecommend;
+      if (isRecommend) {
+        this.$store.state.isRecommend = false;
+        uni.navigateTo({
+          url: '/pages/recommendVideo/recommendVideo' });
 
+      } else {
+        uni.switchTab({
+          url: '/pages/index/index' });
+
+      }
+      this.$store.state.isAccess = false;
     },
     scroll: function scroll(event) {
       var scrollTop = -event.detail.scrollTop;
@@ -251,10 +268,53 @@ __webpack_require__.r(__webpack_exports__);
     confirm: function confirm(done, value) {
       this.message.introduce = value;
       done();
-    } }, "changeIntroduce", function changeIntroduce()
+    } }, _defineProperty(_methods, "changeIntroduce", function changeIntroduce()
   {
     this.open();
-  }),
+  }), _defineProperty(_methods, "moveWrap", function moveWrap()
+  {
+    if (this.wrapISMoveLeft == null) {
+      this.wrapISMoveLeft = true;
+
+    } else {
+      this.wrapISMoveLeft = !this.wrapISMoveLeft;
+    }
+    this.isBlur = this.wrapISMoveLeft;
+  }), _defineProperty(_methods, "updata", function updata()
+  {
+    uni.showToast({
+      title: '暂时未加入此功能',
+      icon: 'none' });
+
+  }), _defineProperty(_methods, "follow", function follow()
+  {
+    this.$store.commit('addFollow', this.message);
+  }), _defineProperty(_methods, "changeHeight", function changeHeight()
+  {
+    return this.isAccess ? 'height:calc(100vh - 412px);' : 'height:calc(100vh - 462px);';
+  }), _defineProperty(_methods, "nocapacity", function nocapacity()
+  {var title = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '暂时未加入此功能';
+    uni.showToast({
+      title: title,
+      icon: 'none' });
+
+  }), _defineProperty(_methods, "moreInstall", function moreInstall()
+  {var _this2 = this;
+    var author = this.$store.state.accessMessage.author;
+    uni.showActionSheet({
+      itemList: ['作者:' + author, '分享', '发私信', '举报', '拉黑'],
+      success: function success(res) {
+        _this2.nocapacity();
+        //console.log('选中了第' + (res.tapIndex + 1) + '个按钮');
+      },
+      fail: function fail(res) {
+        console.log(res.errMsg);
+      } });
+
+  }), _defineProperty(_methods, "showLaudNumber", function showLaudNumber()
+  {
+    this.laudNumberIsShow = !this.laudNumberIsShow;
+  }), _methods),
 
   watch: {},
 
@@ -262,10 +322,33 @@ __webpack_require__.r(__webpack_exports__);
   computed: {
     topNavbgColor: function topNavbgColor() {
       return this.isShow ? '#161823' : 'transparent';
+    },
+    isLogin: function isLogin() {
+      return this.$store.state.isLogin;
+    },
+    isAccess: function isAccess() {
+      return this.$store.state.isAccess;
+    },
+    isMoveLeft: function isMoveLeft() {
+      if (!this.isAccess) {
+        return this.wrapISMoveLeft;
+      }
+    },
+    imageToastLaudTitle: function imageToastLaudTitle() {
+      var userMessage = this.$store.state.user;
+      var author = '';
+      if (!this.isAccess) {
+        author = userMessage.name;
+      } else {
+        author = this.$store.state.accessMessage.author;
+      }
+      var laudLength = userMessage.laudList.length;
+      var laudNumber = laudLength > 10000 ? laudLength.toFixed(2) + 'w' : laudLength;
+      return '" ' + author + ' "' + '共获得 ' + laudNumber + ' 个赞';
     } },
 
   mounted: function mounted() {
-    console.log('profile message', this.message);
+    //console.log('profile message',this.message)
   } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

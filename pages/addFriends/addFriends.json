@@ -1,6 +1,4 @@
 {
-  "navigationBarTitleText": "",
-  "enablePullDownRefresh": false,
   "usingComponents": {
     "top-nav": "/components/topNav-slot",
     "list": "/components/add-friends-list",

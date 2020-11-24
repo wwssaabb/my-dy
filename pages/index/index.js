@@ -137,7 +137,8 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var videoList = function videoList() {__webpack_require__.e(/*! require.ensure | components/videoList */ "components/videoList").then((function () {return resolve(__webpack_require__(/*! ../../components/videoList.vue */ 141));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var tab = function tab() {__webpack_require__.e(/*! require.ensure | components/tab */ "components/tab").then((function () {return resolve(__webpack_require__(/*! ../../components/tab.vue */ 148));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var topNav = function topNav() {__webpack_require__.e(/*! require.ensure | components/topNav */ "components/topNav").then((function () {return resolve(__webpack_require__(/*! ../../components/topNav.vue */ 155));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var viewLeft = function viewLeft() {__webpack_require__.e(/*! require.ensure | components/viewLeft */ "components/viewLeft").then((function () {return resolve(__webpack_require__(/*! ../../components/viewLeft.vue */ 162));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var viewRight = function viewRight() {__webpack_require__.e(/*! require.ensure | components/viewRight */ "components/viewRight").then((function () {return resolve(__webpack_require__(/*! ../../components/viewRight.vue */ 169));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var videoList = function videoList() {__webpack_require__.e(/*! require.ensure | components/videoList */ "components/videoList").then((function () {return resolve(__webpack_require__(/*! ../../components/videoList.vue */ 149));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var tab = function tab() {__webpack_require__.e(/*! require.ensure | components/tab */ "components/tab").then((function () {return resolve(__webpack_require__(/*! ../../components/tab.vue */ 156));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var topNav = function topNav() {__webpack_require__.e(/*! require.ensure | components/topNav */ "components/topNav").then((function () {return resolve(__webpack_require__(/*! ../../components/topNav.vue */ 163));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var viewLeft = function viewLeft() {__webpack_require__.e(/*! require.ensure | components/viewLeft */ "components/viewLeft").then((function () {return resolve(__webpack_require__(/*! ../../components/viewLeft.vue */ 170));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var viewRight = function viewRight() {__webpack_require__.e(/*! require.ensure | components/viewRight */ "components/viewRight").then((function () {return resolve(__webpack_require__(/*! ../../components/viewRight.vue */ 177));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
 
 
 
@@ -174,35 +175,28 @@ __webpack_require__.r(__webpack_exports__);
     viewRight: viewRight },
 
   onLoad: function onLoad() {var _this = this;
+    //获取videos.json
     uni.request({
-      url: "http://192.168.1.101:80/api/videos.json",
+      url: "https://www.longxin.store/api/videos.json",
       success: function success(res) {
-        console.log(res);
         _this.$store.state.videos = res.data.list;
         _this._videos = _this.$store.state.videos;
+        console.log(res.data.list);
         _this.addStoreAttr('videos', 'isLove', false);
         _this.addStoreAttr('videos', 'isFollow', false);
-        console.log(_this._videos);
+        _this.addStoreAttr('videos', 'videosList', []);
+        _this.addStoreAttr('videos', 'trendsList', []);
+        _this.addStoreAttr('videos', 'likesList', []);
         _this.viewMessage = _this._videos[0];
-      },
-      fail: function fail() {
-        //console.log('getInitData fail')
       } });
 
     uni.getStorage({
       key: 'nowLocation',
-      success: function success(res) {
-        //console.log('get nowLocation success',res.data)
-      },
       fail: function fail() {
-        //console.log('get nowLocation fail')
         _this.nowLocation = '北京';
         uni.setStorage({
           key: 'nowLocation',
-          data: _this.nowLocation,
-          success: function success() {
-            //console.log('set nowLocation success')
-          } });
+          data: _this.nowLocation });
 
       } });
 
@@ -226,6 +220,8 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       tabList: ['首页', '朋友', '加号', '消息', '我'],
+      navList: ['地方', '关注', '推荐'],
+      navChoose: '推荐',
       _videos: [],
       nowCurrent: 0,
       viewMessage: {},
@@ -235,7 +231,10 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     changeIsLove: function changeIsLove(obj) {
       if (obj) {
-        this.$store.commit('addLove', this._videos[obj.current]);
+        var newObj = {};
+        newObj.videos = this._videos[obj.current];
+        newObj.page = 'index';
+        this.$store.commit('addLove', newObj);
       }
       this.$refs.viewRight.isLove = this._videos[this.nowCurrent].isLove;
     },
@@ -248,18 +247,40 @@ __webpack_require__.r(__webpack_exports__);
     changeCurrent: function changeCurrent(current) {
       this.nowCurrent = current;
     },
+    refreshModule: function refreshModule() {
+      this.$refs.viewRight.isLove = this._videos[this.nowCurrent].isLove;
+      this.$refs.viewRight.isFollow = this._videos[this.nowCurrent].isFollow;
+    },
+    changePage: function changePage(action) {
+      if (action === 'sub' && this.navList.indexOf(this.navChoose) !== 0) {
+        if (this.navList.indexOf(this.navChoose) === 2) {
+          this.navigateToPage('follow');
+        } else {
+          this.navigateToPage('city');
+        }
+      } else if (action === 'plus' && this.navList.indexOf(this.navChoose) !== 2) {
+        if (this.navList.indexOf(this.navChoose) === 0) {
+          this.navigateToPage('follow');
+        } else {
+          uni.switchTab({
+            url: '/pages/index/index' });
+
+        }
+      }
+    },
+    navigateToPage: function navigateToPage(page) {
+      var finalPage = '/pages/' + page + '/' + page;
+      uni.navigateTo({
+        url: finalPage });
+
+    },
     addStoreAttr: function addStoreAttr(objName, key, value) {
       var payload = {};
       payload['objName'] = objName;
       payload['key'] = key;
       payload['value'] = value;
       this.$store.commit('addAttr', payload);
-    },
-    refreshModule: function refreshModule() {
-      this.$refs.viewRight.isLove = this._videos[this.nowCurrent].isLove;
-      this.$refs.viewRight.isFollow = this._videos[this.nowCurrent].isFollow;
     } },
-
 
   watch: {
     nowCurrent: function nowCurrent() {

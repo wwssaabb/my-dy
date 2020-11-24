@@ -130,7 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var tab = function tab() {__webpack_require__.e(/*! require.ensure | components/tab */ "components/tab").then((function () {return resolve(__webpack_require__(/*! ../../components/tab.vue */ 148));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var topNav = function topNav() {__webpack_require__.e(/*! require.ensure | components/topNav-slot */ "components/topNav-slot").then((function () {return resolve(__webpack_require__(/*! ../../components/topNav-slot.vue */ 190));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var content = function content() {__webpack_require__.e(/*! require.ensure | components/friend-content */ "components/friend-content").then((function () {return resolve(__webpack_require__(/*! ../../components/friend-content.vue */ 197));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var tab = function tab() {__webpack_require__.e(/*! require.ensure | components/tab */ "components/tab").then((function () {return resolve(__webpack_require__(/*! ../../components/tab.vue */ 156));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var topNav = function topNav() {__webpack_require__.e(/*! require.ensure | components/topNav-slot */ "components/topNav-slot").then((function () {return resolve(__webpack_require__(/*! ../../components/topNav-slot.vue */ 198));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var content = function content() {__webpack_require__.e(/*! require.ensure | components/friend-content */ "components/friend-content").then((function () {return resolve(__webpack_require__(/*! ../../components/friend-content.vue */ 205));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
@@ -155,7 +155,7 @@ __webpack_require__.r(__webpack_exports__);
   onShow: function onShow() {
     this.isLogin = this.$store.state.isLogin;
     if (!this.isLogin) {
-      this.$store.commit('toLogin');
+      this.$store.commit('toLogin', 'friend');
     }
     this.$refs.tab.isChoose = '朋友';
     this.friends = this.$store.state.user.friends;

@@ -130,7 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var topNav = function topNav() {__webpack_require__.e(/*! require.ensure | components/topNav */ "components/topNav").then((function () {return resolve(__webpack_require__(/*! ../../components/topNav.vue */ 155));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var tab = function tab() {__webpack_require__.e(/*! require.ensure | components/tab */ "components/tab").then((function () {return resolve(__webpack_require__(/*! ../../components/tab.vue */ 148));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var cityContent = function cityContent() {__webpack_require__.e(/*! require.ensure | components/cityContent */ "components/cityContent").then((function () {return resolve(__webpack_require__(/*! ../../components/cityContent.vue */ 255));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var topNav = function topNav() {__webpack_require__.e(/*! require.ensure | components/topNav */ "components/topNav").then((function () {return resolve(__webpack_require__(/*! ../../components/topNav.vue */ 163));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var tab = function tab() {__webpack_require__.e(/*! require.ensure | components/tab */ "components/tab").then((function () {return resolve(__webpack_require__(/*! ../../components/tab.vue */ 156));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var cityContent = function cityContent() {__webpack_require__.e(/*! require.ensure | components/cityContent */ "components/cityContent").then((function () {return resolve(__webpack_require__(/*! ../../components/cityContent.vue */ 277));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
@@ -148,16 +148,6 @@ __webpack_require__.r(__webpack_exports__);
     topNav: topNav,
     cityContent: cityContent },
 
-  data: function data() {
-    return {
-      tabList: ['首页', '朋友', '加号', '消息', '我'],
-      videoList: [],
-      nowLocation: '光明' };
-
-  },
-  methods: {},
-
-
   onLoad: function onLoad() {
     this.$refs.topNav.isChoose = '本地';
     this.videoList = this.$store.state.videos;
@@ -169,7 +159,67 @@ __webpack_require__.r(__webpack_exports__);
         _this.nowLocation = res.data;
       } });
 
-  } };exports.default = _default;
+  },
+  data: function data() {
+    return {
+      tabList: ['首页', '朋友', '加号', '消息', '我'],
+      videoList: [],
+      nowLocation: '光明',
+      navList: ['地方', '关注', '推荐'],
+      navChoose: '地方',
+      changeStartY: 0,
+      changeStartX: 0,
+      changeEndY: 0,
+      changeEndX: 0 };
+
+  },
+  methods: {
+    touchstart: function touchstart(res) {
+      this.changeStartY = res.changedTouches[0].pageY;
+      this.changeStartX = res.changedTouches[0].pageX;
+    },
+    touchend: function touchend(res) {
+      this.changeEndY = res.changedTouches[0].pageY;
+      this.changeEndX = res.changedTouches[0].pageX;
+      if (this.diffX > this.diffY && this.diffX > 50) {
+        if (this.changeEndX > this.changeStartX) {
+          this.changePage('sub');
+        } else {
+          this.changePage('plus');
+        }
+      }
+    },
+    changePage: function changePage(action) {
+      if (action === 'sub' && this.navList.indexOf(this.navChoose) !== 0) {
+        if (this.navList.indexOf(this.navChoose) === 2) {
+          this.navigateToPage('follow');
+        } else {
+          this.navigateToPage('city');
+        }
+      } else if (action === 'plus' && this.navList.indexOf(this.navChoose) !== 2) {
+        if (this.navList.indexOf(this.navChoose) === 0) {
+          this.navigateToPage('follow');
+        } else {
+          uni.switchTab({
+            url: '/pages/index/index' });
+
+        }
+      }
+    },
+    navigateToPage: function navigateToPage(page) {
+      var finalPage = '/pages/' + page + '/' + page;
+      uni.navigateTo({
+        url: finalPage });
+
+    } },
+
+  computed: {
+    diffX: function diffX() {
+      return Math.abs(this.changeEndX - this.changeStartX);
+    },
+    diffY: function diffY() {
+      return Math.abs(this.changeEndY - this.changeStartY);
+    } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),

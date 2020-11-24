@@ -94,7 +94,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components = {
   uniSearchBar: function() {
-    return __webpack_require__.e(/*! import() | components/uni-search-bar/uni-search-bar */ "components/uni-search-bar/uni-search-bar").then(__webpack_require__.bind(null, /*! @/components/uni-search-bar/uni-search-bar.vue */ 262))
+    return __webpack_require__.e(/*! import() | components/uni-search-bar/uni-search-bar */ "components/uni-search-bar/uni-search-bar").then(__webpack_require__.bind(null, /*! @/components/uni-search-bar/uni-search-bar.vue */ 284))
   }
 }
 var render = function() {
@@ -134,7 +134,13 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var uniSearchBar = function uniSearchBar() {__webpack_require__.e(/*! require.ensure | components/uni-search-bar/uni-search-bar */ "components/uni-search-bar/uni-search-bar").then((function () {return resolve(__webpack_require__(/*! @/components/uni-search-bar/uni-search-bar.vue */ 262));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var listAuto = function listAuto() {__webpack_require__.e(/*! require.ensure | components/cityList-item */ "components/cityList-item").then((function () {return resolve(__webpack_require__(/*! ../../components/cityList-item.vue */ 269));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var listHistory = function listHistory() {__webpack_require__.e(/*! require.ensure | components/cityList-item */ "components/cityList-item").then((function () {return resolve(__webpack_require__(/*! ../../components/cityList-item.vue */ 269));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var listHot = function listHot() {__webpack_require__.e(/*! require.ensure | components/cityList-item */ "components/cityList-item").then((function () {return resolve(__webpack_require__(/*! ../../components/cityList-item.vue */ 269));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var letteritem = function letteritem() {__webpack_require__.e(/*! require.ensure | components/cityList-item */ "components/cityList-item").then((function () {return resolve(__webpack_require__(/*! ../../components/cityList-item.vue */ 269));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var letter = function letter() {__webpack_require__.e(/*! require.ensure | components/city-letter */ "components/city-letter").then((function () {return resolve(__webpack_require__(/*! ../../components/city-letter.vue */ 276));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var uniSearchBar = function uniSearchBar() {__webpack_require__.e(/*! require.ensure | components/uni-search-bar/uni-search-bar */ "components/uni-search-bar/uni-search-bar").then((function () {return resolve(__webpack_require__(/*! @/components/uni-search-bar/uni-search-bar.vue */ 284));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var listAuto = function listAuto() {__webpack_require__.e(/*! require.ensure | components/cityList-item */ "components/cityList-item").then((function () {return resolve(__webpack_require__(/*! ../../components/cityList-item.vue */ 291));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var listHistory = function listHistory() {__webpack_require__.e(/*! require.ensure | components/cityList-item */ "components/cityList-item").then((function () {return resolve(__webpack_require__(/*! ../../components/cityList-item.vue */ 291));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var listHot = function listHot() {__webpack_require__.e(/*! require.ensure | components/cityList-item */ "components/cityList-item").then((function () {return resolve(__webpack_require__(/*! ../../components/cityList-item.vue */ 291));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var letteritem = function letteritem() {__webpack_require__.e(/*! require.ensure | components/cityList-item */ "components/cityList-item").then((function () {return resolve(__webpack_require__(/*! ../../components/cityList-item.vue */ 291));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var letter = function letter() {__webpack_require__.e(/*! require.ensure | components/city-letter */ "components/city-letter").then((function () {return resolve(__webpack_require__(/*! ../../components/city-letter.vue */ 298));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
+
+
+
+
 
 
 
@@ -188,6 +194,31 @@ __webpack_require__.r(__webpack_exports__);
     letteritem: letteritem,
     letter: letter },
 
+  onLoad: function onLoad() {
+    this.cityList = this.$store.state.cityListRequest;
+    this.letterArr = this.cityList.map(function (a) {return a.initial;});
+    this._cityHistoryList = this.$store.state.cityHistoryList;
+  },
+  onShow: function onShow() {var _this = this;
+    uni.getStorage({
+      key: 'nowLocation',
+      success: function success(res) {
+        _this.nowLocation = res.data;
+        _this.cityAutoList.push(res.data);
+        if (_this._cityHistoryList.length < 3) {
+          if (!_this._cityHistoryList.includes(res.data)) {
+            _this._cityHistoryList.unshift(res.data);
+          }
+        } else {
+          _this._cityHistoryList.pop();
+          if (!_this._cityHistoryList.includes(res.data)) {
+            _this._cityHistoryList.unshift(res.data);
+          }
+        }
+
+      } });
+
+  },
   data: function data() {
     return {
       cityAutoList: [],
@@ -196,48 +227,38 @@ __webpack_require__.r(__webpack_exports__);
       cityList: [],
       letterArr: [],
       nowLetter: 'top',
-      nowLocation: '' };
+      nowLocation: '',
+      scrollTop: 0,
+      scrollTopList: { 'top': 0, 'A': 445, 'B': 1440, 'C': 2965, 'D': 5444, 'E': 8135, 'F': 8388, 'G': 10231, 'H': 12286, 'J': 15825, 'K': 19735, 'L': 20412, 'M': 25435, 'N': 26377, 'P': 27955, 'Q': 29798, 'R': 31747, 'S': 32636, 'T': 36917, 'W': 38972, 'X': 41610, 'Y': 44831, 'Z': 49377, 'end': 999999 },
+      scrollTopValueList: [],
+      scrollTopKeyList: [] };
 
   },
   methods: {
     changeLetter: function changeLetter(letter) {
       this.nowLetter = letter;
+    },
+    scroll: function scroll(event) {
+      var nowScrollTopY = event.detail.scrollTop;
+      for (var i = 0; i < this.scrollTopValueList.length; i++) {
+        if (this.scrollTopValueList[i] <= nowScrollTopY && nowScrollTopY < this.scrollTopValueList[i + 1]) {
+          if (0 <= nowScrollTopY && nowScrollTopY < 445) {
+            this.$refs.letter.chooseLetter = this.scrollTopKeyList[0];
+            this.nowLetter = 'top';
+          } else {
+            this.$refs.letter.chooseLetter = this.scrollTopKeyList[i];
+            this.nowLetter = this.scrollTopKeyList[i];
+          }
+        }
+      }
     } },
 
   watch: {},
 
 
-  onLoad: function onLoad() {var _this = this;
-    uni.request({
-      url: "http://192.168.1.101:80/api/city.json",
-      success: function success(res) {
-        //console.log(res)
-        _this.cityList = res.data.city;
-        _this.letterArr = _this.cityList.map(function (a) {return a.initial;});
-      } }),
-
-    this._cityHistoryList = this.$store.state.cityHistoryList;
-  },
-  onShow: function onShow() {var _this2 = this;
-    uni.getStorage({
-      key: 'nowLocation',
-      success: function success(res) {
-        _this2.nowLocation = res.data;
-        _this2.cityAutoList.push(res.data);
-        if (_this2._cityHistoryList.length < 3) {
-          if (!_this2._cityHistoryList.includes(res.data)) {
-            _this2._cityHistoryList.unshift(res.data);
-          }
-        } else {
-          _this2._cityHistoryList.pop();
-          if (!_this2._cityHistoryList.includes(res.data)) {
-            _this2._cityHistoryList.unshift(res.data);
-          }
-        }
-
-      } });
-
-
+  mounted: function mounted() {
+    this.scrollTopValueList = Object.values(this.scrollTopList);
+    this.scrollTopKeyList = Object.keys(this.scrollTopList);
   } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

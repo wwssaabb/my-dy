@@ -15,7 +15,7 @@
 .profile-author-name-account{
 	width: calc(100vw - 20px);
 	height: auto;
-	font-size: 15px;
+	font-size: 13px;
 	font-weight: bold;
 	color: #65676e;
 	display: -webkit-box;

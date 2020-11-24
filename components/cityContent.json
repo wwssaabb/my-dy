@@ -1,7 +1,6 @@
 {
   "component": true,
   "usingComponents": {
-    "city-location": "/components/cityLocation",
-    "video-player": "/components/videoPlayer"
+    "city-location": "/components/cityLocation"
   }
 }

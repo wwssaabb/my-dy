@@ -9,7 +9,7 @@
 	width: 100%;
 	height: 35px;
 	position:fixed;
-	top: 25px;
+	top: 35px;
 	left: 0;
 	z-index: 20;
 	border-bottom: 2px solid #22242e;

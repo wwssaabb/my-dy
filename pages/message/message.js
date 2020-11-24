@@ -130,7 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var topNav = function topNav() {__webpack_require__.e(/*! require.ensure | components/topNav-slot */ "components/topNav-slot").then((function () {return resolve(__webpack_require__(/*! ../../components/topNav-slot.vue */ 190));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var tab = function tab() {__webpack_require__.e(/*! require.ensure | components/tab */ "components/tab").then((function () {return resolve(__webpack_require__(/*! ../../components/tab.vue */ 148));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var labelList = function labelList() {__webpack_require__.e(/*! require.ensure | components/message-labelList */ "components/message-labelList").then((function () {return resolve(__webpack_require__(/*! ../../components/message-labelList.vue */ 204));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var content = function content() {__webpack_require__.e(/*! require.ensure | components/message-content */ "components/message-content").then((function () {return resolve(__webpack_require__(/*! ../../components/message-content.vue */ 211));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var topNav = function topNav() {__webpack_require__.e(/*! require.ensure | components/topNav-slot */ "components/topNav-slot").then((function () {return resolve(__webpack_require__(/*! ../../components/topNav-slot.vue */ 198));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var tab = function tab() {__webpack_require__.e(/*! require.ensure | components/tab */ "components/tab").then((function () {return resolve(__webpack_require__(/*! ../../components/tab.vue */ 156));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var labelList = function labelList() {__webpack_require__.e(/*! require.ensure | components/message-labelList */ "components/message-labelList").then((function () {return resolve(__webpack_require__(/*! ../../components/message-labelList.vue */ 212));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var content = function content() {__webpack_require__.e(/*! require.ensure | components/message-content */ "components/message-content").then((function () {return resolve(__webpack_require__(/*! ../../components/message-content.vue */ 219));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
@@ -160,7 +160,7 @@ __webpack_require__.r(__webpack_exports__);
   onShow: function onShow() {
     this.isLogin = this.$store.state.isLogin;
     if (!this.isLogin) {
-      this.$store.commit('toLogin');
+      this.$store.commit('toLogin', 'message');
     } else {
       this.messageList = this.$store.state.user.messageList;
     }
@@ -185,17 +185,9 @@ __webpack_require__.r(__webpack_exports__);
 
     },
     navigateTo: function navigateTo(page) {
-      console.log('navigateTo to ' + page);
       var p = '/pages/' + page + '/' + page;
-      console.log(p);
       uni.navigateTo({
-        url: p,
-        success: function success() {
-          console.log('navigateTo success');
-        },
-        fail: function fail() {
-          console.log('navigateTo fail');
-        } });
+        url: p });
 
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))

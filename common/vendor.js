@@ -904,7 +904,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"my-dy","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_NAME":"mydy","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -1951,7 +1951,7 @@ _vue.default.use(_vuex.default);
 
 var store = new _vuex.default.Store({
   state: {
-    isLogin: true,
+    isLogin: false,
     isAccess: false,
     videos: [],
     cityHistoryList: [],
@@ -1973,17 +1973,20 @@ var store = new _vuex.default.Store({
       'videosList': [],
       'trendsList': [],
       'photosList': [],
+      'likesList': [],
       'messageList': [],
       'fansList': [],
       'laudList': [],
       'callMeList': [],
-      'commenteList': [],
+      'commentsList': [],
       'friends': [],
       'friendsRecommend': [],
       'profileMessage': {} },
 
     userList: [],
-    accessMessage: [] },
+    accessMessage: {},
+    recommendVideoSrc: '',
+    isRecommend: false },
 
   mutations: {
     addAttr: function addAttr(state, payload) {
@@ -1994,48 +1997,94 @@ var store = new _vuex.default.Store({
       var _videos = state.videos;
       var _followList = state.user.followList;
       if (state.isLogin) {
-        payload.isFollow = true;
+        var _video = _videos.find(function (a) {return a.id === payload.id;});
         var followIdList = _followList.map(function (a) {return a.id;});
+        _video.isFollow = !_video.isFollow;
         if (!followIdList.includes(payload.id)) {
           _followList.push(payload);
+        } else {
+          var index = followIdList.indexOf(payload.id);
+          _followList.splice(index, 1);
         }
       } else {
         this.commit('toLogin');
       }
+      //console.log(_followList)
     },
     addLove: function addLove(state, payload) {
-      console.log(payload);
+      //console.log(payload)
       if (state.isLogin) {
-        var videoMessage = state.videos.find(function (a) {return a.id === payload.id;});
+        var videoMessage = state.videos.find(function (a) {return a.id === payload.videos.id;});
         videoMessage.isLove = !videoMessage.isLove;
         videoMessage.isLove ? videoMessage.loveNumber++ : videoMessage.loveNumber--;
+        if (videoMessage.isLove) {
+          var _payload = {};
+          _payload.type = 'push';
+          _payload.video = videoMessage;
+          this.commit('changeLikesList', _payload);
+        } else {
+          var _payload2 = {};
+          _payload2.type = 'remove';
+          _payload2.video = videoMessage;
+          this.commit('changeLikesList', _payload2);
+        }
       } else {
-        this.commit('toLogin');
+        this.commit('toLogin', payload.page);
       }
     },
-    toLogin: function toLogin() {
+    toLogin: function toLogin(state, payload) {
+      if (!payload) {
+        payload = 'recommendVideo';
+      }
       uni.navigateTo({
-        url: '/pages/login/login',
-        success: function success() {
-          //console.log('navigateTo login success')
-        },
-        fail: function fail() {
-          //console.log('navigateTo login fail')
-        } });
+        url: '/pages/login/login?page=' + payload });
 
     },
     setAccessMessage: function setAccessMessage(state, payload) {
-      console.log('store', payload);
+      //console.log('store',payload)
       state.isAccess = true;
       state.accessMessage = payload;
-      console.log(state.accessMessage);
+    },
+    changeLikesList: function changeLikesList(state, payload) {
+      var likesList = state.user.likesList;
+      if (payload.type === 'push') {
+        likesList.push(payload.video);
+      } else {
+        var index = likesList.indexOf(payload.video);
+        likesList.splice(index, 1);
+      }
+      //console.log(likesList)
     } },
 
   actions: {},
 
 
-  getters: {} });var _default =
-
+  getters: {
+    videosList: function videosList(state) {
+      if (state.isAccess) {
+        var id = state.accessMessage.id;
+        var idList = state.accessMessage.videosList.map(function (a) {return a.id;});
+        if (!idList.includes(id)) {
+          state.accessMessage.videosList.push(state.videos.find(function (a) {return a.id === id;}));
+        }
+        return state.accessMessage.videosList;
+      } else {
+        return state.user.videosList;
+      }
+    },
+    trendsList: function trendsList(state) {
+      return state.user.trendsList;
+    },
+    likesList: function likesList(state) {
+      if (state.isAccess) {
+        return state.accessMessage.likesList;
+      } else {
+        return state.user.likesList;
+      }
+    },
+    followList: function followList(state) {
+      return state.user.followList;
+    } } });var _default =
 
 
 
@@ -8683,7 +8732,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"NODE_ENV":"development","VUE_APP_NAME":"my-dy","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"VUE_APP_NAME":"mydy","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -8704,14 +8753,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"my-dy","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_NAME":"mydy","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"my-dy","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_NAME":"mydy","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -8797,7 +8846,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = this.$shouldDiffData === false ? data : diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"my-dy","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_NAME":"mydy","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -9204,7 +9253,7 @@ internalMixin(Vue);
 
 /***/ }),
 
-/***/ 223:
+/***/ 231:
 /*!******************************************************!*\
   !*** E:/前端/Demo/my-dy/components/uni-popup/popup.js ***!
   \******************************************************/
@@ -9212,7 +9261,7 @@ internalMixin(Vue);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _message = _interopRequireDefault(__webpack_require__(/*! ./message.js */ 224));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _message = _interopRequireDefault(__webpack_require__(/*! ./message.js */ 232));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 // 定义 type 类型:弹出类型：top/bottom/center
 var config = {
   // 顶部弹出
@@ -9239,7 +9288,7 @@ var config = {
 
 /***/ }),
 
-/***/ 224:
+/***/ 232:
 /*!********************************************************!*\
   !*** E:/前端/Demo/my-dy/components/uni-popup/message.js ***!
   \********************************************************/
@@ -9301,7 +9350,18 @@ module.exports = g;
 
 /***/ }),
 
-/***/ 372:
+/***/ 4:
+/*!***********************************!*\
+  !*** E:/前端/Demo/my-dy/pages.json ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+
+/***/ 408:
 /*!******************************************************!*\
   !*** E:/前端/Demo/my-dy/components/uni-icons/icons.js ***!
   \******************************************************/
@@ -9404,17 +9464,6 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
   'closefill': "\uE589",
   'sound': "\uE590",
   'scan': "\uE612" };exports.default = _default;
-
-/***/ }),
-
-/***/ 4:
-/*!***********************************!*\
-  !*** E:/前端/Demo/my-dy/pages.json ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-
 
 /***/ })
 

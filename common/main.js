@@ -96,19 +96,45 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 /* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default =
 {
-  onLaunch: function onLaunch() {
+  onLaunch: function onLaunch() {var _this = this;
     console.log('App Launch');
     uni.hideTabBar();
     this.$store.state.userList.push(this.$store.state.user);
+    /* //获取videos.json
+                                                             uni.request({
+                                                             	url:"https://www.longxin.store/api/videos.json",
+                                                             	success:(res)=>{
+                                                             		this.$store.state.videos=res.data.list
+                                                             		console.log(res.data.list)
+                                                             		this.addStoreAttr('videos','isLove',false)
+                                                             		this.addStoreAttr('videos','isFollow',false)
+                                                             		this.addStoreAttr('videos','videosList',[])
+                                                             		this.addStoreAttr('videos','trendsList',[])
+                                                             		this.addStoreAttr('videos','likesList',[])
+                                                             	}
+                                                             }) */
+    //获取city.json
+    uni.request({
+      url: "https://www.longxin.store/api/city.json",
+      success: function success(res) {
+        _this.$store.state.cityListRequest = res.data.city;
+      } });
+
   },
   onShow: function onShow() {
-    console.log('App Show');
+    //console.log('App Show')
   },
   onHide: function onHide() {
-    console.log('App Hide');
+    //console.log('App Hide')
   },
   methods: {
-    toJSON: function toJSON() {} } };exports.default = _default;
+    /* addStoreAttr(objName,key,value){
+            	let payload={}
+            	payload['objName']=objName
+            	payload['key']=key
+            	payload['value']=value
+            	this.$store.commit('addAttr',payload)
+            }, */} };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),

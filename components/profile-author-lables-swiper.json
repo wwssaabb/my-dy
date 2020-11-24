@@ -1,6 +1,8 @@
 {
   "component": true,
   "usingComponents": {
-    "empty": "/components/empty-clue"
+    "empty": "/components/empty-clue",
+    "videos-list": "/components/profile-author-showList",
+    "likes-list": "/components/profile-author-showList"
   }
 }

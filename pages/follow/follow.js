@@ -130,7 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var noLogin = function noLogin() {__webpack_require__.e(/*! require.ensure | components/follow-noLogin */ "components/follow-noLogin").then((function () {return resolve(__webpack_require__(/*! ../../components/follow-noLogin.vue */ 176));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var noFollow = function noFollow() {__webpack_require__.e(/*! require.ensure | components/follow-noLogin */ "components/follow-noLogin").then((function () {return resolve(__webpack_require__(/*! ../../components/follow-noLogin.vue */ 176));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var content = function content() {__webpack_require__.e(/*! require.ensure | components/follow-content */ "components/follow-content").then((function () {return resolve(__webpack_require__(/*! ../../components/follow-content.vue */ 183));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var tab = function tab() {__webpack_require__.e(/*! require.ensure | components/tab */ "components/tab").then((function () {return resolve(__webpack_require__(/*! ../../components/tab.vue */ 148));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var topNav = function topNav() {__webpack_require__.e(/*! require.ensure | components/topNav */ "components/topNav").then((function () {return resolve(__webpack_require__(/*! ../../components/topNav.vue */ 155));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var left = function left() {__webpack_require__.e(/*! require.ensure | components/viewLeft */ "components/viewLeft").then((function () {return resolve(__webpack_require__(/*! ../../components/viewLeft.vue */ 162));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var right = function right() {__webpack_require__.e(/*! require.ensure | components/viewRight */ "components/viewRight").then((function () {return resolve(__webpack_require__(/*! ../../components/viewRight.vue */ 169));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var noLogin = function noLogin() {__webpack_require__.e(/*! require.ensure | components/follow-noLogin */ "components/follow-noLogin").then((function () {return resolve(__webpack_require__(/*! ../../components/follow-noLogin.vue */ 184));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var noFollow = function noFollow() {__webpack_require__.e(/*! require.ensure | components/follow-noLogin */ "components/follow-noLogin").then((function () {return resolve(__webpack_require__(/*! ../../components/follow-noLogin.vue */ 184));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var content = function content() {__webpack_require__.e(/*! require.ensure | components/follow-content */ "components/follow-content").then((function () {return resolve(__webpack_require__(/*! ../../components/follow-content.vue */ 191));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var tab = function tab() {__webpack_require__.e(/*! require.ensure | components/tab */ "components/tab").then((function () {return resolve(__webpack_require__(/*! ../../components/tab.vue */ 156));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var topNav = function topNav() {__webpack_require__.e(/*! require.ensure | components/topNav */ "components/topNav").then((function () {return resolve(__webpack_require__(/*! ../../components/topNav.vue */ 163));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var left = function left() {__webpack_require__.e(/*! require.ensure | components/viewLeft */ "components/viewLeft").then((function () {return resolve(__webpack_require__(/*! ../../components/viewLeft.vue */ 170));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var right = function right() {__webpack_require__.e(/*! require.ensure | components/viewRight */ "components/viewRight").then((function () {return resolve(__webpack_require__(/*! ../../components/viewRight.vue */ 177));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
@@ -192,8 +192,6 @@ __webpack_require__.r(__webpack_exports__);
     if (this._videos.length !== 0) {
       this.viewMessage = this._videos[0];
     }
-    console.log('onLoad', this._videos);
-    console.log('onLoad', this.viewMessage);
   },
   onShow: function onShow() {
     this.$refs.topNav.isChoose = '关注';
@@ -203,7 +201,6 @@ __webpack_require__.r(__webpack_exports__);
       this.viewMessage = this._videos[0];
       this.refreshModule();
     }
-    console.log('onShow', this._videos);
     this.isLogin = this.$store.state.isLogin;
   },
   data: function data() {
@@ -211,6 +208,12 @@ __webpack_require__.r(__webpack_exports__);
       isLogin: false,
       nowLocation: '',
       tabList: ['首页', '朋友', '加号', '消息', '我'],
+      navList: ['地方', '关注', '推荐'],
+      navChoose: '关注',
+      changeStartY: 0,
+      changeStartX: 0,
+      changeEndY: 0,
+      changeEndX: 0,
       _videos: [],
       nowCurrent: 0,
       viewMessage: {} };
@@ -233,8 +236,6 @@ __webpack_require__.r(__webpack_exports__);
       this.nowCurrent = current;
     },
     refreshModule: function refreshModule() {
-      console.log('refreshModule', this.$refs.viewRight.isLove);
-      console.log('refreshModule', this.$refs.viewRight.isFollow);
       this.$refs.viewRight.isLove = this._videos[this.nowCurrent].isLove;
       this.$refs.viewRight.isFollow = this._videos[this.nowCurrent].isFollow;
     },
@@ -245,6 +246,44 @@ __webpack_require__.r(__webpack_exports__);
           _this2.nowLocation = res.data;
         } });
 
+    },
+    touchstart: function touchstart(res) {
+      this.changeStartY = res.changedTouches[0].pageY;
+      this.changeStartX = res.changedTouches[0].pageX;
+    },
+    touchend: function touchend(res) {
+      this.changeEndY = res.changedTouches[0].pageY;
+      this.changeEndX = res.changedTouches[0].pageX;
+      if (this.diffX > this.diffY) {
+        if (this.changeEndX > this.changeStartX && this.diffX > 50) {
+          this.changePage('sub');
+        } else {
+          this.changePage('plus');
+        }
+      }
+    },
+    changePage: function changePage(action) {
+      if (action === 'sub' && this.navList.indexOf(this.navChoose) !== 0) {
+        if (this.navList.indexOf(this.navChoose) === 2) {
+          this.navigateToPage('follow');
+        } else {
+          this.navigateToPage('city');
+        }
+      } else if (action === 'plus' && this.navList.indexOf(this.navChoose) !== 2) {
+        if (this.navList.indexOf(this.navChoose) === 0) {
+          this.navigateToPage('follow');
+        } else {
+          uni.switchTab({
+            url: '/pages/index/index' });
+
+        }
+      }
+    },
+    navigateToPage: function navigateToPage(page) {
+      var finalPage = '/pages/' + page + '/' + page;
+      uni.navigateTo({
+        url: finalPage });
+
     } },
 
   watch: {
@@ -252,6 +291,14 @@ __webpack_require__.r(__webpack_exports__);
       this.changeIsLove();
       this.changeIsFollow();
       this.viewMessage = this._videos[this.nowCurrent];
+    } },
+
+  computed: {
+    diffX: function diffX() {
+      return Math.abs(this.changeEndX - this.changeStartX);
+    },
+    diffY: function diffY() {
+      return Math.abs(this.changeEndY - this.changeStartY);
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

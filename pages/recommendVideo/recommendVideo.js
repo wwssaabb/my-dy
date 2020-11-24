@@ -130,7 +130,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var topNav = function topNav() {__webpack_require__.e(/*! require.ensure | components/topNav */ "components/topNav").then((function () {return resolve(__webpack_require__(/*! ../../components/topNav.vue */ 155));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var tab = function tab() {__webpack_require__.e(/*! require.ensure | components/tab */ "components/tab").then((function () {return resolve(__webpack_require__(/*! ../../components/tab.vue */ 148));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var left = function left() {__webpack_require__.e(/*! require.ensure | components/viewLeft */ "components/viewLeft").then((function () {return resolve(__webpack_require__(/*! ../../components/viewLeft.vue */ 162));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var right = function right() {__webpack_require__.e(/*! require.ensure | components/viewRight */ "components/viewRight").then((function () {return resolve(__webpack_require__(/*! ../../components/viewRight.vue */ 169));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var videoPlayer = function videoPlayer() {__webpack_require__.e(/*! require.ensure | components/videoPlayer */ "components/videoPlayer").then((function () {return resolve(__webpack_require__(/*! ../../components/videoPlayer.vue */ 283));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var topNav = function topNav() {__webpack_require__.e(/*! require.ensure | components/topNav */ "components/topNav").then((function () {return resolve(__webpack_require__(/*! ../../components/topNav.vue */ 163));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var tab = function tab() {__webpack_require__.e(/*! require.ensure | components/tab */ "components/tab").then((function () {return resolve(__webpack_require__(/*! ../../components/tab.vue */ 156));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var left = function left() {__webpack_require__.e(/*! require.ensure | components/viewLeft */ "components/viewLeft").then((function () {return resolve(__webpack_require__(/*! ../../components/viewLeft.vue */ 170));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var right = function right() {__webpack_require__.e(/*! require.ensure | components/viewRight */ "components/viewRight").then((function () {return resolve(__webpack_require__(/*! ../../components/viewRight.vue */ 177));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var videoPlayer = function videoPlayer() {__webpack_require__.e(/*! require.ensure | components/videoPlayer */ "components/videoPlayer").then((function () {return resolve(__webpack_require__(/*! ../../components/videoPlayer.vue */ 305));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
 
 
 
@@ -165,27 +167,49 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
     videoPlayer: videoPlayer },
 
   onLoad: function onLoad(option) {var _this = this;
-    this.src = option.src;
-    this._videos = this.$store.state.videos;
-    this.message = this._videos.find(function (a) {return a.src === _this.src;});
+    if (option.src) {
+      this.src = option.src;
+    } else {
+      this.src = this.$store.state.recommendVideoSrc;
+    }
+    this.message = this.videos.find(function (a) {return a.src === _this.src;});
+  },
+  onShow: function onShow() {
+
   },
   data: function data() {
     return {
       src: '',
-      _videos: [],
       message: {} };
 
   },
   methods: {
-    changeIsLove: function changeIsLove(obj) {var _this2 = this;
-      console.log(obj);
-      this._videos.find(function (a) {return a.message.src === _this2.src;}).isLove = obj.isLove;
+    changeIsLove: function changeIsLove(obj) {
+      var newObj = {};
+      newObj.videos = this.message;
+      newObj.page = 'recommendVideo';
+      newObj.src = this.finalSrc;
+      this.$store.commit('addLove', newObj);
     },
-    changeIsFlow: function changeIsFlow(obj) {var _this3 = this;
-      this._videos.find(function (a) {return a.message.src === _this3.src;}).isFollow = obj.isFollow;
+    changeIsFollow: function changeIsFollow(obj) {
+      if (obj) {
+        this.$store.commit('addFollow', this.message);
+      }
+      this.$refs.viewRight.isFollow = this.message.isFollow;
     } },
 
-  computed: {} };exports.default = _default;
+  computed: {
+    videos: function videos() {
+      return this.$store.state.videos;
+    },
+    isLogin: function isLogin() {
+      return this.$store.state.isLogin;
+    } },
+
+  watch: {
+    src: function src() {var _this2 = this;
+      this.message = this.videos.find(function (a) {return a.src === _this2.src;});
+    } } };exports.default = _default;
 
 /***/ }),
 

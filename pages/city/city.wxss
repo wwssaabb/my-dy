@@ -6,7 +6,7 @@
 }
 .city-nav{
 	position:fixed;
-	top:25px;
+	top:35px;
 	left: 0;
 	right: 0;
 	height: 35px;
@@ -24,9 +24,9 @@
 }
 .city-content{
 	width: 100%;
-	height: calc(100vh - 110px);
+	height: calc(100vh - 120px);
 	position: fixed;
-	top: 60px;
+	top: 70px;
 	left: 0;
 	overflow: hidden;
 }

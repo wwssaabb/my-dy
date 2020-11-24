@@ -130,8 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var topNav = function topNav() {__webpack_require__.e(/*! require.ensure | components/topNav-slot */ "components/topNav-slot").then((function () {return resolve(__webpack_require__(/*! ../../components/topNav-slot.vue */ 190));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var content = function content() {__webpack_require__.e(/*! require.ensure | components/login-content */ "components/login-content").then((function () {return resolve(__webpack_require__(/*! ../../components/login-content.vue */ 290));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
-
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var topNav = function topNav() {__webpack_require__.e(/*! require.ensure | components/topNav-slot */ "components/topNav-slot").then((function () {return resolve(__webpack_require__(/*! ../../components/topNav-slot.vue */ 198));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var content = function content() {__webpack_require__.e(/*! require.ensure | components/login-content */ "components/login-content").then((function () {return resolve(__webpack_require__(/*! ../../components/login-content.vue */ 312));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
@@ -149,8 +148,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 {
-  onLoad: function onLoad() {
-
+  onLoad: function onLoad(option) {
+    this.nextPage = option.page;
   },
   onShow: function onShow() {
 
@@ -160,19 +159,49 @@ __webpack_require__.r(__webpack_exports__);
     content: content },
 
   data: function data() {
-    return {};
-
+    return {
+      tabList: { '首页': 'index', '朋友': 'friend', '加号': 'plus', '消息': 'message', '我': 'profile' },
+      nextPage: '',
+      src: '' };
 
   },
   methods: {
-    navigateBack: function navigateBack() {
+    navigateBack: function navigateBack(status) {
       var isLogin = this.$store.state.isLogin;
-      if (isLogin) {
-        uni.navigateBack();
-      } else {
-        uni.switchTab({
-          url: '/pages/index/index' });
+      var tabListValue = Object.values(this.tabList);
+      if (isLogin && status === 'success') {
+        if (tabListValue.includes(this.nextPage)) {
+          uni.switchTab({
+            url: '/pages/' + this.nextPage + '/' + this.nextPage });
 
+        } else if (this.nextPage === 'recommendVideo') {
+          uni.navigateBack();
+        } else if (this.nextPage === 'profile') {
+          uni.navigateBack();
+        }
+        uni.showToast({
+          title: '登录成功!',
+          icon: 'none' });
+
+      } else {
+        if (status === 'fail' && this.nextPage === 'recommendVideo') {
+          uni.navigateBack();
+        } else if (status === 'fail' && this.nextPage === 'profile') {
+          if (this.$store.state.isRecommend) {
+            this.$store.state.isRecommend = false;
+            uni.navigateTo({
+              url: '/pages/recommendVideo/recommendVideo' });
+
+          } else {
+            uni.switchTab({
+              url: '/pages/index/index' });
+
+          }
+        } else {
+          uni.switchTab({
+            url: '/pages/index/index' });
+
+        }
         uni.showToast({
           title: '未登录成功!',
           icon: 'none' });
@@ -184,6 +213,11 @@ __webpack_require__.r(__webpack_exports__);
         title: '无帮助文档',
         icon: 'none' });
 
+    } },
+
+  computed: {
+    isAccess: function isAccess() {
+      return this.$store.state.isAccess;
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

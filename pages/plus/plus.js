@@ -138,20 +138,29 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 var _default =
 {
   onLoad: function onLoad() {
-    var isLogin = this.$store.state.isLogin;
-    if (!isLogin) {
-      this.$store.commit('toLogin');
-    }
+
   },
   onShow: function onShow() {
-
+    var isLogin = this.$store.state.isLogin;
+    if (!isLogin) {
+      this.$store.commit('toLogin', 'plus');
+    }
   },
   data: function data() {
-    return {};
-
+    return {
+      src: '',
+      isPreview: false,
+      pictureList: [] };
 
   },
   methods: {
@@ -161,11 +170,24 @@ var _default =
         quality: 'high',
         success: function success(res) {
           _this.src = res.tempImagePath;
+          _this.pictureList.push(_this.src);
+          uni.showToast({
+            title: '拍摄成功',
+            icon: 'none' });
+
         } });
 
     },
+    error: function error(e) {
+      //console.log(e.detail);
+    },
     closeCamera: function closeCamera() {
-      uni.navigateBack();
+      uni.switchTab({
+        url: '/pages/index/index' });
+
+    },
+    toPreview: function toPreview() {
+      this.isPreview = !this.isPreview;
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

@@ -18,7 +18,6 @@
 	        align-items: center;
 }
 .profile-author-labels-item{
-	width: 25%;
 	height: 40px;
 	font-size: 16px;
 	font-weight: bold;
@@ -33,17 +32,27 @@
 	-webkit-align-items: center;
 	        align-items: center;
 }
+.profile-author-labels-swiper-empty{
+	width: 100%;
+	height: 100%;
+}
 .profile-author-labels-choose{
+	font-weight: bold;
 	color: #e2e2e3;
 	border-bottom:3px solid #face15;
 }
 .profile-author-labels-swiper{
 	width: 100%;
-	height: 200px;
 }
 .profile-author-labels-swiper-item{
 	width: 100%;
-	height: 200px;
+	min-height: 100%;
+	color: #7f8085;
+	font-weight: normal;
+}
+.profile-author-labels-item-number{
+	margin-left:5px ;
+	font-size: 16px;
 }
 .profile-author-opus-img{
 	width: 160px;
